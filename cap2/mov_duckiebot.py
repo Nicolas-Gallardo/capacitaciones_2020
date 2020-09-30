@@ -47,7 +47,6 @@ while True:
 
     # Captura la tecla que está siendo apretada y almacena su valor en key
     key = cv2.waitKey(30)
-
     # Si la tecla es Esc, se sale del loop y termina el programa
     if key == 27:
         break
@@ -59,12 +58,32 @@ while True:
 
     # Definir acción en base a la tecla apretada
 
+    ### AGREGAR MÁS COMPORTAMIENTOS ###
+
     # Esto es avanzar recto hacia adelante al apretar la tecla w
     if key == ord('w'):
         action = np.array([0.44, 0.0])
+        
+    # Retrocede en linea recta
+    if key == ord('s'):
+        action = np.array([-0.044, 0.0])
+    
+    # Gira en sentido horario
+    if key == ord('d'):
+        action = np.array([0.0, -0.77])
+   
+    # Gira en sentido anti-horario
+    if key == ord('a'):
+        action = np.array([0.0, 0.77])
+    
+    # Avanza y gira en sentido horario
+    if key == ord('e'):
+        action = np.array([0.33, -0.66])
 
-    ### AGREGAR MÁS COMPORTAMIENTOS ###
-
+    # Avanza y gira en sentido anti-horario
+    if key == ord('q'):
+        action = np.array([0.33, 0.77])
+    
 
 
     # Se ejecuta la acción definida anteriormente y se retorna la observación (obs),
